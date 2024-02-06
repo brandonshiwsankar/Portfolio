@@ -1,0 +1,73 @@
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+<style>
+    body {
+        background: #F4F4EA;
+    }
+    table, th, td {
+  border: 1px solid black;
+  }
+</style>
+
+  <!-- Main Content -->
+  <main class="container" style="height:580px">
+    <div class="jumbotron"> 
+    <div class="row">
+        <div class="col-md-offset-3 col-md-11" >
+            <h1 class="display-4" style="text-align: center;"><%= title %></h1>
+            <a href="/survey/add" class="btn btn-primary" role="button">
+            <i class="fas fa-plus-circle"></i> Add a Survey</a>
+            <br>
+            <table class="table table-bordered-striped-hover" >
+                <!--Header Row-->
+                <tr class="d-flex">
+                <% if (typeof displayName == 'string' && displayName) { %>
+                    <th class="text-center col-2">Survey name</th>
+                    <th class="text-center col-2">Author</th>
+                    <th class="text-center col-4">Email Address</th>
+                    <th class="text-center col-2"></th>
+                    <th class="text-center col-2"></th>
+                    <% } else { %>
+                    <th class="text-center col-2">Survey name</th>
+                    <th class="text-center col-2">Author</th>
+                    <th class="text-center col-4">Email Address</th>
+                    <th class="text-center col-2"></th>
+                    <th class="text-center col-2"></th>
+                    <% } %>
+                </tr>
+
+                <!--Repeatable Table Row-->
+
+                <%  for (let count = 0; count < SurveyList.length; count++) { %>
+                    <tr class="d-flex">
+                     <% if (typeof displayName == 'string' && displayName) { %>
+                        <td class="text-center col-2"><%= SurveyList[count].name %></td>
+                        <td class="text-center col-2"><%= SurveyList[count].author %></td>
+                        <td class="text-center col-4"><%= SurveyList[count].email %></td>
+                        <td class="text-center col-2">
+                        <a href="/survey/edit/<%= SurveyList[count]._id %>" class="btn btn-primary xs">
+                        <i class="fas fa-pencil-alt"></i>Update</a>
+                        </td>
+                        <td class="text-center col-2">
+                        <a href="/survey/delete/<%= SurveyList[count]._id %>" class="btn btn-danger xs">
+                        <i class="fas fa-trash-alt"></i>Delete</a>
+                    <% } else { %>
+                        <td class="text-center col-2"><%= SurveyList[count].name %></td>
+                        <td class="text-center col-2"><%= SurveyList[count].author %></td>
+                        <td class="text-center col-4"><%= SurveyList[count].email %></td>
+                        <th class="text-center col-2"></th>
+                        <th class="text-center col-2"></th>
+                    <% } %>
+                        </td>
+                    </tr>
+                <% } %> 
+            </table>
+        </div>
+    </div>
+</div>
+  </main>
+
+<%- include ../partials/bottom_nav.ejs %>
+<%- include ../partials/footer.ejs %>

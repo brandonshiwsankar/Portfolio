@@ -1,0 +1,51 @@
+<! name:Brandon shiwsanakr
+Student number: 301068399
+Date: 9/8/2020
+file name: index
+>
+
+<%- include partials/header.ejs %>
+
+<%- include partials/main_nav.ejs %>
+<style>
+    body {
+        background: #F4F4EA;
+    }
+</style>
+
+    <!--Main Content-->
+  <main class="container">
+   <div class="jumbotron">
+    <h1 class="display-4" style="text-align: center;">Welcome to the <%= title %> page of Baby Survey</h1>
+    <br>
+    <div id="top" class="card-group">
+      <div id="border"  class="card">
+          <div  class="card-body">
+          <h5 class="card-title">Click here to Create a survey</h5> 
+          <a href="/survey" class="btn btn-primary">Create Survey</a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="card-group">
+      <div id="border" class="card">
+        <div class="card-body">
+          <h5 class="card-title">Click here to Contact us</h5> 
+          <a href="/contact" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <br>
+      <div  class="card-group">
+        <div id="border"class="card">
+          <div  class="card-body">
+          <h5 class="card-title" style="text-align: center;">Click here to login </h5> 
+          <a href="/login" class="btn btn-primary" >Login</a>
+        </div>
+      </div>
+    </div>
+</main>
+
+<%- include partials/bottom_nav.ejs %>
+
+<%- include partials/footer.ejs %>
